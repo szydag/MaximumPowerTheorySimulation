@@ -20,9 +20,9 @@ def createGraphicBar(resistances, voltage, resistancePiece):
 
     resistance_values = [np.sum(resistances[:i+1]) for i in range(resistancePiece)]
 
-    max_power_index = np.argmax(powerList)
-    plt.bar(resistance_values, powerList, width=0.1, label='Devre Gücü')
-    plt.scatter(resistance_values[max_power_index], powerList[max_power_index], color='red', label='Max Güç Noktası', s=100)
+    max_power_index = np.argmax(powerList) # verilen direnç değerleri ile ulaşılan max gücü belirlemek için
+    plt.scatter(resistance_values[max_power_index], powerList[max_power_index], color='red', label='Max Güç Noktası', s=100) # belirlenen güç noktasını işaretlemek için
+
     plt.xlabel('Toplam Direnç Değeri')
     plt.ylabel('Devre Gücü (Watt)')
     plt.title('Toplam Direnç Değerine Göre Devre Gücü Değişimi')
@@ -30,7 +30,7 @@ def createGraphicBar(resistances, voltage, resistancePiece):
     plt.show()
     
 def createGraphicPlot(resistances, voltage, resistancePiece):
-    resistance_range = np.arange(0, calculateTotalResistance(resistances), 1)
+    resistance_range = np.arange(0, calculateTotalResistance(resistances), 10)
     powerList = []
 
     for resistance in resistance_range:
@@ -39,10 +39,6 @@ def createGraphicPlot(resistances, voltage, resistancePiece):
         powerList.append(circuitPower)
 
     plt.plot(resistance_range, powerList, label='Devre Gücü')
-    max_power_index = np.argmax(powerList)
-    resistance_values = [np.sum(resistances[:i+1]) for i in range(resistancePiece)]
-    plt.scatter(resistance_values[max_power_index], powerList[max_power_index], color='red', label='Max Güç Noktası', s=100) # belirlenen güç noktasını işaretlemek için
-
     plt.xlabel('Direnç Değeri')
     plt.ylabel('Devre Gücü (Watt)')
     plt.title('Direnç Değerine Göre Devre Gücü Değişimi')

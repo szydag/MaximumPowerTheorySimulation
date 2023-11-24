@@ -20,9 +20,15 @@ def createGraphicBar(resistances, voltage, resistancePiece):
 
     resistance_values = [np.sum(resistances[:i+1]) for i in range(resistancePiece)]
 
+    # Find the index of the maximum power value
     max_power_index = np.argmax(powerList)
+
+    # Plot bar chart
     plt.bar(resistance_values, powerList, width=0.1, label='Devre Gücü')
+
+    # Highlight the point with maximum power
     plt.scatter(resistance_values[max_power_index], powerList[max_power_index], color='red', label='Max Güç Noktası', s=100)
+
     plt.xlabel('Toplam Direnç Değeri')
     plt.ylabel('Devre Gücü (Watt)')
     plt.title('Toplam Direnç Değerine Göre Devre Gücü Değişimi')
