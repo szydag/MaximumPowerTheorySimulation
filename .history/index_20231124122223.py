@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def calculateCircuitPower(voltage, resistances):
     totalResistance = np.sum(resistances) #seri baglı direnç için hesaplama
-    circuitPower = voltage*voltage / totalResistance
+    circuitPower = voltage^2 / totalResistance
     return totalResistance, circuitPower
 
 def createGraphic(resistances, voltage):
