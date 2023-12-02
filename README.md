@@ -1,6 +1,6 @@
-#Maksimum Güç Teoremi Simülasyonu
+# Maksimum Güç Teoremi Simülasyonu
 
-##Giriş: 
+## Giriş: 
 Bu rapor, Temel Elektronik dersi kapsamında yapılan 1. vize ödevi olan "Maksimum Güç Teoremi Simülasyonu" hakkındadır. Ödevin amacı sabit voltaj ve farklı direnç değerleriyle oluşturulmuş elektrik devresindeki güç kaybını gözlemlemek ve sonuçları grafik olarak görselleştirmektir. Simülasyon işlemi Python dili kullanılarak gerçekleştirilmektedir.
 
 
