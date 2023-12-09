@@ -8,7 +8,7 @@ def calculateTotalResistance(resistances, internalResistance):
 
 def calculateCircuitPower(voltage, resistances, internalResistance):
     totalResistance = calculateTotalResistance(resistances, internalResistance)
-    circuitPower = (voltage/totalResistance) * (voltage/totalResistance) / totalResistance
+    circuitPower = voltage * voltage / totalResistance
     return circuitPower
     
 def createGraphicPlot(resistances, voltage, resistancePiece, internalResistance):

@@ -8,16 +8,16 @@ def calculateTotalResistance(resistances, internalResistance):
 
 def calculateCircuitPower(voltage, resistances, internalResistance):
     totalResistance = calculateTotalResistance(resistances, internalResistance)
-    circuitPower = (voltage/totalResistance) * (voltage/totalResistance) / totalResistance
+    circuitPower = voltage * voltage / totalResistance
     return circuitPower
     
 def createGraphicPlot(resistances, voltage, resistancePiece, internalResistance):
-    resistance_range = np.arange(0, calculateTotalResistance(resistances, internalResistance), 1)
+    resistance_range = np.arange(0, calculateTotalResistance(resistances), 1)
     powerList = []
 
     for resistance in resistance_range:
        totalResistance = calculateTotalResistance(resistances, internalResistance)
-       circuitPower = calculateCircuitPower(voltage, resistances + [resistance], internalResistance)
+       circuitPower = calculateCircuitPower(voltage, resistances + [resistance])
        powerList.append(circuitPower)
     
     
