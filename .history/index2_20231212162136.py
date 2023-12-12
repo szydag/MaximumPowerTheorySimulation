@@ -1,24 +1,24 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-def CalculateTotalResistance(resistance, internalResistance):
+def calculateTotalResistance(resistance, internalResistance):
     totalResistance = resistance + internalResistance
     return totalResistance
 
-def CalculateCurrentValue(voltage, totalResistance):
+def calculateCurrentValue(voltage, totalResistance):
     currentValue = voltage / totalResistance
     return currentValue
 
-def CalculateVoltageValue(currentValue, resistance):
+def calculateVoltageValue(currentValue, resistance):
     voltageValue = currentValue * resistance
     return voltageValue
 
-def CalculateCircuitPower(currentValue, voltageValue):
+def calculateCircuitPower(currentValue, voltageValue):
     circuitPower = currentValue * voltageValue
     return circuitPower
 
 
-def CreateGraphicPlot(resistanceList, powerList, maxPowerResistance, maxPower):
+def createGraphicPlot(resistanceList, powerList, maxPowerResistance, maxPower):
     plt.plot(resistanceList, powerList, label='Güç')
     plt.scatter(maxPowerResistance, maxPower, color='red', label=f'Max Güç\n({maxPowerResistance}, {maxPower})')
     
@@ -35,11 +35,11 @@ def main():
     powerList = []
     resistanceList = []
 
-    for resistance in range(internalResistance * 5):
-        totalResistance = CalculateTotalResistance(resistance, internalResistance)
-        currentValue = CalculateCurrentValue(voltage, totalResistance)
-        voltageValue = CalculateVoltageValue(currentValue, resistance)
-        circuitPower = CalculateCircuitPower(currentValue, voltageValue)
+    for resistance in range(internalResistance * 2):
+        totalResistance = calculateTotalResistance(resistance, internalResistance)
+        currentValue = calculateCurrentValue(voltage, totalResistance)
+        voltageValue = calculateVoltageValue(currentValue, resistance)
+        circuitPower = calculateCircuitPower(currentValue, voltageValue)
         resistanceList.append(resistance)
         powerList.append(circuitPower)
 
@@ -47,7 +47,7 @@ def main():
     maxPowerIndex = powerList.index(maxPower)
     maxPowerResistance = resistanceList[maxPowerIndex]
 
-    CreateGraphicPlot(resistanceList, powerList, maxPowerResistance, maxPower)
+    createGraphicPlot(resistanceList, powerList, maxPowerResistance, maxPower)
 
 if __name__ == "__main__":
     main()

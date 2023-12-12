@@ -35,7 +35,7 @@ def main():
     powerList = []
     resistanceList = []
 
-    for resistance in range(internalResistance * 5):
+    for resistance in range(internalResistance * 2):
         totalResistance = CalculateTotalResistance(resistance, internalResistance)
         currentValue = CalculateCurrentValue(voltage, totalResistance)
         voltageValue = CalculateVoltageValue(currentValue, resistance)
